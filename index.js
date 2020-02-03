@@ -5,6 +5,8 @@ var bunyan = require('bunyan'),
     bodyParser = require('body-parser'),
     path = require('path');
 
+var cors = require('cors');
+
 var config = require(path.resolve(__dirname + '/config/'));
 
 // Create a bunyan logger instance.
@@ -31,6 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 // Parse bodies with json, "Content-Type: application/json"
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.set('view engine', 'jade');
 
